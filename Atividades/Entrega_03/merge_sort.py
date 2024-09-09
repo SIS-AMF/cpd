@@ -1,3 +1,5 @@
+import random
+
 def change(arr, index1, index2):
     temp = arr[index1]
     arr[index1] = arr[index2]
@@ -7,13 +9,23 @@ def verify(arr, index):
     next_index = index + 1
     if arr[index] > arr[next_index]:
         change(arr, index, next_index)
+        return True
+    return False
+
+def verify_previous(arr, index):
+    for sec_index in range(index -1,-1, -1):
+        # Faz a validação se esta ordenado novamente
+        # Também verifica se achou ja a posicao correspondente e para o loop
+        if not verify(arr, sec_index):
+            break
 
 def insertion_sort(arr):
     for index in range(len(arr) - 1):
-        verify(arr, index)
-        for sec_index in range(index -1,-1, -1):
-            verify(arr, sec_index)
-    print("=>", arr)
+        # Faz a validação se esta ordenado
+        if verify(arr, index):
+            # Se ouve uma troca ele faz a verificação com os anteriores
+            verify_previous(arr, index)
+    #print("=>", arr)
     return arr
 
 
@@ -28,11 +40,21 @@ def merge_sort(arr):
         return arr
 
 def main():
-    arr = [24,14,29,4,18,24,24,13,13,22]
-    #arr = [10,9,8,9,8,7,6,5,4,3,2,1]
-    teste = merge_sort(arr)
+    lista_inversa = [10,9,8,7,6,5,4,3,2,1]
+    lista_ordenada = [1,2,3,4,5,6,7,8,9,10]
+    lista_com_repeticoes = [4,7,2,5,6,7,4,3,2,6,7,4,3,2,5,7,7,5,3,5,7,]
+    lista_aleatoria = [random.randint(0, 9) for X in range(20)]
 
+    arr = merge_sort(lista_inversa)
     print(arr)
-    print(teste)
+
+    arr = merge_sort(lista_ordenada)
+    print(arr)
+
+    arr = merge_sort(lista_com_repeticoes)
+    print(arr)
+
+    arr = merge_sort(lista_aleatoria)
+    print(arr)
 
 main()

@@ -35,12 +35,6 @@ def insertion_sort(arr_insertion):
 
 
 
-def troca(arr, index, incrementador, temp):
-    while index >= incrementador and arr[index - incrementador] > temp:
-        arr[index] = arr[index - incrementador]
-        index = index - incrementador
-    arr[index] = temp
-
 def verify_shell(arr, start_point, incrementador):
     ordena = [[index, arr[index]] for index in range(start_point, len(arr), incrementador)]
     insertion_sort(ordena)

@@ -95,15 +95,18 @@ class ABB:
             return self._post_order_recursive(node.left) + self._post_order_recursive(node.right) + [node.value]
 
 
-# Exemplo de uso
 tree = ABB()
+tree.insert(5)
+tree.insert(8)
+tree.insert(6)
+tree.insert(7)
 tree.insert(10)
 tree.insert(9)
-tree.insert(8)
-tree.insert(7)
-tree.insert(6)
-tree.insert(5)
+tree.insert(2)
 tree.insert(4)
+tree.insert(3)
+tree.insert(0)
+tree.insert(1)
 
 print("Pré-ordem:")
 tree.print_pre_order()
@@ -114,10 +117,8 @@ tree.print_in_order()
 print("Pós-ordem:")
 tree.print_post_order()
 
-# Buscar um elemento
 print("Busca pelo valor 7:", tree.search(7))
 
-# Deletar um elemento
 tree.delete(7)
-print("Árvore após deletar o valor 7 (ordem simétrica):")
+print("Árvore após deletar o valor 7 (Em-ordem):")
 tree.print_in_order()

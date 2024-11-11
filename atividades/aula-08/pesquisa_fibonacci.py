@@ -36,8 +36,7 @@ def fibMonaccianSearch(lista, x, n):
 
 
 def main():
-
-git    lista = [50, 58, 64, 74, 80, 85, 90, 99]
+    lista = [50, 58, 64, 74, 80, 85, 90, 99]
     n = len(lista)
     x = 58
     ind = fibMonaccianSearch(lista, x, n)
